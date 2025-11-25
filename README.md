@@ -1,97 +1,108 @@
-# Week 9 Laboratory Work - Third-Party React Components
+# Full Stack Development Labs - Weeks 9 & 10
 
 **Course:** SFT6314 Full Stack Development
-**Week:** 9
 
-## Overview
+---
 
-This repository contains three React applications demonstrating the use of third-party components:
+## Week 9: Third-Party React Components
+
+### Overview
+Three React applications demonstrating third-party components:
 
 1. **aggrid-github** - AG Grid with GitHub API integration
 2. **shoppinglist** - MUI Shopping List application
 3. **routerapp** - React Router navigation demo
 
-## Task 1: AG Grid Data Grid (`aggrid-github`)
-
-A React application that fetches GitHub repositories and displays them in an AG Grid data table.
-
-### Features
+### Task 1: AG Grid Data Grid (`aggrid-github`)
 - Fetches React repositories from GitHub Search API
-- Displays columns: `full_name`, `html_url`, `owner.login`
-- Sorting enabled on all columns
-- Filtering enabled on all columns
-- Pagination with 8 items per page
-- Material theme styling
+- Columns: `full_name`, `html_url`, `owner.login`
+- Sorting, filtering, and pagination (8 items per page)
 
-### Run
 ```bash
-cd aggrid-github
-npm install
-npm start
+cd aggrid-github && npm install && npm start
 ```
 
-### Dependencies
-- `ag-grid-community`
-- `ag-grid-react`
+### Task 2: MUI Shopping List (`shoppinglist`)
+- AppBar, Toolbar, Container layout
+- Modal Dialog for adding items
+- List, ListItem, ListItemText display
 
-## Task 2: MUI Shopping List (`shoppinglist`)
-
-A shopping list application built with Material-UI component library.
-
-### Features
-- AppBar with Toolbar for header layout
-- Container for main content
-- Modal Dialog for adding new items
-- TextField inputs for Product and Amount
-- List display with ListItem and ListItemText
-- Stack component for centering
-
-### Run
 ```bash
-cd shoppinglist
-npm install
-npm start
+cd shoppinglist && npm install && npm start
 ```
 
-### Dependencies
-- `@mui/material`
-- `@emotion/react`
-- `@emotion/styled`
-
-## Task 3: React Router Navigation (`routerapp`)
-
-A multi-page application demonstrating client-side routing with React Router v6.
-
-### Features
-- BrowserRouter wrapper
-- Navigation with Link components
-- Routes and Route for path definitions
+### Task 3: React Router Navigation (`routerapp`)
+- BrowserRouter, Routes, Route, Link
 - Home and Contact page components
 
-### Run
 ```bash
-cd routerapp
-npm install
-npm start
+cd routerapp && npm install && npm start
 ```
 
-### Dependencies
-- `react-router-dom@6`
-- `history@5`
+---
+
+## Week 10: Frontend and Backend Integration Setup
+
+### Overview
+Carshop application with Spring Boot backend and React frontend integration.
+
+### Functional Requirements (CARSHOP_REQUIREMENTS.md)
+- List cars from database
+- Grid with paging, sorting, filtering
+- Add car via modal form
+- Edit/Delete buttons per row
+- Export to CSV
+
+### Backend (`carshop-backend`)
+
+Spring Boot application with **security disabled** for frontend development.
+
+**Key File:** `src/main/java/com/carshop/config/SecurityConfig.java`
+- CSRF disabled
+- All requests permitted without authentication
+
+**Run Backend:**
+```bash
+cd carshop-backend
+mvn spring-boot:run
+```
+
+**Test API (no auth required):**
+```bash
+curl http://localhost:8080/api/cars
+```
+
+### Frontend (`carfront`)
+
+React application with MUI AppBar component.
+
+**Run Frontend:**
+```bash
+cd carfront && npm install && npm start
+```
+
+Opens at http://localhost:3000 with "Carshop" AppBar.
+
+---
 
 ## Branch Structure
 
-- `main` - Contains all merged code
-- `lab-9-aggrid` - Task 1 development branch
-- `lab-9-mui` - Task 2 development branch
-- `lab-9-router` - Task 3 development branch
+- `main` - All merged code
+- `lab-9-aggrid` - Week 9 Task 1
+- `lab-9-mui` - Week 9 Task 2
+- `lab-9-router` - Week 9 Task 3
+- `lab-10-setup` - Week 10 Integration Setup
 
-## Technical Requirements Met
+## Technical Stack
 
-- [x] Node.js installed
-- [x] All dependencies saved to package.json
-- [x] React Router v6 used
-- [x] MUI v5 with emotion packages
-- [x] AG Grid community and react packages
-- [x] Separate feature branches for each task
-- [x] All branches merged via commits
+### Backend
+- Spring Boot 3.2.0
+- Spring Security (disabled for dev)
+- Spring Data JPA
+- H2 Database
+
+### Frontend
+- React 18
+- Material-UI (MUI) v5
+- AG Grid
+- React Router v6
