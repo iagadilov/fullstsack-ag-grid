@@ -11,7 +11,10 @@ public class Car {
     private String brand;
     private String model;
     private String color;
+
+    @Column(name = "model_year")
     private int year;
+
     private int price;
 
     // Default constructor

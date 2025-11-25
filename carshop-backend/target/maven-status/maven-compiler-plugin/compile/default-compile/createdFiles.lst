@@ -1,0 +1,6 @@
+com/carshop/controller/CarController.class
+com/carshop/repository/CarRepository.class
+com/carshop/model/Car.class
+com/carshop/config/DataInitializer.class
+com/carshop/CarshopApplication.class
+com/carshop/config/SecurityConfig.class
